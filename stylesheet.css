@@ -66,12 +66,10 @@ a:hover {
     background-color: rgba(80, 126, 81, 1);
 }
 
-footer {
-    bottom: 0;
-    position: absolute;
-    justify-content: center;
-    width: 98vw;
+.coinAnimated {
+    width: 15%;
 }
+
 
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
