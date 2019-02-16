@@ -264,3 +264,10 @@ form {
 .mainIcon {
     width: 30%;
 }
+
+.aboutPara {
+    text-align: left;
+    width: 70vw;
+    margin: 2.5vh 15vw;
+    font-size: 1.25em;
+}
