@@ -2,8 +2,8 @@
 
 .text-center {
     margin-top: 10%;
-    /*background-color: #507E51;*/
-    background-image: url(media/paperbgbutitschill.png);
+    /*background-color: white;*/
+    background-image: url(media/lighter.png);
     overflow: hidden;
 }
 
@@ -224,10 +224,43 @@ form {
 
 #logo-container {
     left: 0;
+    top:0;
+    position: fixed;
     text-align: left;
+    margin: 15px;
 }
 
 #logo {
     background: none;
     border: none;
+    width: 80%;
+
+}
+
+.mainOptions {
+    display: flex;
+    direction: row;
+    width: 90vw;
+    margin: 0 5vw;
+    justify-content: space-between;
+}
+
+.visOption {
+    width: 45vw;
+    border-right: 2px solid black;
+    padding: 4em;
+}
+
+.calcOption {
+    width: 45vw;
+    padding: 4em;
+}
+
+.visOption:hover, .calcOption:hover {
+    cursor: pointer;
+    background-color: rgba(97, 201, 136, 0.5);
+}
+
+.mainIcon {
+    width: 30%;
 }
