@@ -107,7 +107,8 @@ Animation for coin spinning
     animation-duration: 3500ms;
     animation-iteration-count: 1;
     animation-timing-function: 1;
-    width: 15%;
+    width: 15vw;
+    min-width: 15vw;
 }
 
 /* Coin image spinning animations */
