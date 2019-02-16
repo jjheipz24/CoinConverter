@@ -117,6 +117,7 @@ Animation for coin spinning
     from {
         -ms-transform: rotate(0deg);
     }
+
     to {
         -ms-transform: rotate(360deg);
     }
@@ -126,6 +127,7 @@ Animation for coin spinning
     from {
         -moz-transform: rotate(0deg);
     }
+
     to {
         -moz-transform: rotate(360deg);
     }
@@ -135,6 +137,7 @@ Animation for coin spinning
     from {
         -webkit-transform: rotate(0deg);
     }
+
     to {
         -webkit-transform: rotate(360deg);
     }
@@ -144,6 +147,7 @@ Animation for coin spinning
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -155,9 +159,10 @@ Animation for coin spinning
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+
     .visualizer {
         flex-direction: column;
-}
+    }
 
 }
 
@@ -181,4 +186,48 @@ form {
 #canvas {
     width: 70%;
     border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#logo-container {
+    left: 0;
+    text-align: left;
+}
+
+#logo {
+    background: none;
+    border: none;
 }
