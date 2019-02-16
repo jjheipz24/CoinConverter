@@ -1,42 +1,36 @@
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
+/* Body formatting for all the content of the page */
 .text-center {
     margin-top: 10%;
     /*background-color: #507E51;*/
-    background-image: url(paperbgbutitschill.png);
+    background-image: url(media/paperbgbutitschill.png);
 }
 
+/* Changes font of title */
 .cover-heading {
     color: white;
-}
-
-h1 {
     font-size: 70px;
 }
 
+/* Info paragraph on index page */
 .lead {
     color: #66676E;
     margin-top: 5%;
 }
 
+/* Start button design */
 .btn.btn-lg.btn-secondary {
     background-color: #61C988;
     border: none;
     width: 8em;
 }
 
+/* Hovering over start button */
 .btn.btn-lg.btn-secondary:hover {
     background-color: white;
     color: #61C988;
 }
 
+/* Nav bar formatting */
 nav {
     top: 0;
     position: absolute;
@@ -44,51 +38,43 @@ nav {
     justify-content: center;
 }
 
+/* Text in nav bar */
 .nav-link {
     color: #66676E;
     border-radius: 10px;
     margin: 2vh 2vw;
 }
 
+/* Hovering over nav bar links */
 .nav-link:hover {
     color: black;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-a {
-    margin: 0;
-    color: black;
-}
-
-a:hover {
-    color: black;
-    text-decoration: underline;
-    background-color: rgba(80, 126, 81, 1);
-}
-
-
-
+/* Div around coin image on index page */
 .coinAnimated {
     left: -1000px;
     position: absolute;
-    animation: entrance 5s linear;
+    animation: entrance 5s linear both;
 }
 
+/* Animation for coin going across page upon opening */
 @keyframes entrance {
-	from{
+    from {
         transform: translateX(-1000px);
+        /*        display: inline-block;*/
     }
-	to {
-        transform: translateX(1000px);
+    to {
+        transform: translateX(200vw);
         display: none;
     }
 }
 
-
-
 /*
 ADAPTED FROM GABRIELE PETROLI
 http://jsfiddle.net/gaby/9Ryvs/7/
+
+Animation for coin spinning
 */
 .coinImage {
     display: inline-block;
@@ -112,27 +98,44 @@ http://jsfiddle.net/gaby/9Ryvs/7/
     width: 15%;
 }
 
+/* Coin image spinning animations */
 @-ms-keyframes spin {
-    from { -ms-transform: rotate(0deg); }
-    to { -ms-transform: rotate(360deg); }
-}
-@-moz-keyframes spin {
-    from { -moz-transform: rotate(0deg); }
-    to { -moz-transform: rotate(360deg); }
-}
-@-webkit-keyframes spin {
-    from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
     from {
-        transform:rotate(0deg);
+        -ms-transform: rotate(0deg);
     }
     to {
-        transform:rotate(360deg);
+        -ms-transform: rotate(360deg);
     }
 }
 
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Boostrap media css for scaling page */
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
