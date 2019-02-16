@@ -57,11 +57,13 @@
     <script>
         let moneyValue;
 
-        $("#submitValue").click(function() {
+        $(document).ready(function() {
+        $("#submitValue").click(function(event) {
             moneyValue = $(".moneyInput").val();
-            console.log(moneyValue);
-
+            alert(moneyValue);
         });
+    });
+
 
     </script>
 </body>
