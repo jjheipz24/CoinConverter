@@ -43,8 +43,8 @@
         <main role="main" class="inner cover">
             <div class="visualizer">
                 <form>
-                    Amount: <input type="text" name="value"><br>
-                    <button>Submit</button>
+                    Amount: <input class="moneyInput" type="text" name="value"><br>
+                    <button id="submitValue">Submit</button>
                 </form>
                 <div id="canvas"></div>
             </div>
@@ -53,6 +53,19 @@
         </main>
 
     </div>
+
+    <script>
+        let moneyValue;
+
+        $(document).ready(function() {
+        $("#submitValue").click(function(event) {
+            moneyValue = $(".moneyInput").val();
+            alert(moneyValue);
+        });
+    });
+
+
+    </script>
 </body>
 
 </html>
