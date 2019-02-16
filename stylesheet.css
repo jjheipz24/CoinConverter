@@ -156,3 +156,15 @@ Animation for coin spinning
         font-size: 3.5rem;
     }
 }
+.visualizer {
+    display: flex;
+    flex-direction: row;
+}
+
+#input {
+
+}
+
+#canvas {
+    border: 1px solid black;
+}
