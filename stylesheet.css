@@ -66,11 +66,31 @@ a:hover {
     background-color: rgba(80, 126, 81, 1);
 }
 
+
+
+.coinAnimated {
+    left: -1000px;
+    position: absolute;
+    animation: entrance 5s linear;
+}
+
+@keyframes entrance {
+	from{
+        transform: translateX(-1000px);
+    }
+	to {
+        transform: translateX(1000px);
+        display: none;
+    }
+}
+
+
+
 /*
 ADAPTED FROM GABRIELE PETROLI
 http://jsfiddle.net/gaby/9Ryvs/7/
 */
-.coinAnimated {
+.coinImage {
     display: inline-block;
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
@@ -89,10 +109,7 @@ http://jsfiddle.net/gaby/9Ryvs/7/
     animation-duration: 4000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-}
-
-.coinImage {
-    width: 30%;
+    width: 15%;
 }
 
 @-ms-keyframes spin {
