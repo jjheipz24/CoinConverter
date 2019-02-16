@@ -155,16 +155,30 @@ Animation for coin spinning
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+    .visualizer {
+        flex-direction: column;
 }
+
+}
+
+/* For entire content on visualizer page */
 .visualizer {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5%;
 }
 
-#input {
-
+/* Input for amount of money*/
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
+/* Where Three.js canvas will go*/
 #canvas {
+    width: 70%;
     border: 1px solid black;
 }
