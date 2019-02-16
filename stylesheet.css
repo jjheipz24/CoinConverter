@@ -9,15 +9,20 @@
 
 .text-center {
     margin-top: 10%;
-    background-color: #507E51;
+    /*background-color: #507E51;*/
+    background-image: url(paperbgbutitschill.png);
 }
 
 .cover-heading {
     color: white;
 }
 
+h1 {
+    font-size: 70px;
+}
+
 .lead {
-    color: #C8CCBE;
+    color: #66676E;
     margin-top: 5%;
 }
 
@@ -33,7 +38,6 @@
 }
 
 nav {
-    color: #C8CCBE;
     top: 0;
     position: absolute;
     width: 98vw;
@@ -41,7 +45,7 @@ nav {
 }
 
 .nav-link {
-    color: #C8CCBE;
+    color: #66676E;
     border-radius: 10px;
     margin: 2vh 2vw;
 }
