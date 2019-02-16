@@ -3,6 +3,7 @@
     margin-top: 10%;
     /*background-color: #507E51;*/
     background-image: url(media/paperbgbutitschill.png);
+    overflow: hidden;
 }
 
 /* Changes font of title */
@@ -53,22 +54,22 @@ nav {
 
 /* Div around coin image on index page */
 .coinAnimated {
-    left: -1000px;
-    position: absolute;
-    animation: entrance 5s linear both;
+/*    animation: entrance 5s linear both;*/
 }
 
 /* Animation for coin going across page upon opening */
+/*
 @keyframes entrance {
     from {
-        transform: translateX(-1000px);
-        /*        display: inline-block;*/
+        transform: translateX(0vw);
+                display: inline-block;
     }
     to {
-        transform: translateX(200vw);
+        transform: translateX(175vw);
         display: none;
     }
 }
+*/
 
 /*
 ADAPTED FROM GABRIELE PETROLI
@@ -79,22 +80,22 @@ Animation for coin spinning
 .coinImage {
     display: inline-block;
     -webkit-animation-name: spin;
-    -webkit-animation-duration: 4000ms;
-    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 3500ms;
+    -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: linear;
     -moz-animation-name: spin;
-    -moz-animation-duration: 4000ms;
-    -moz-animation-iteration-count: infinite;
+    -moz-animation-duration: 3500ms;
+    -moz-animation-iteration-count: 1;
     -moz-animation-timing-function: linear;
     -ms-animation-name: spin;
-    -ms-animation-duration: 4000ms;
-    -ms-animation-iteration-count: infinite;
+    -ms-animation-duration: 3500ms;
+    -ms-animation-iteration-count: 1;
     -ms-animation-timing-function: linear;
 
     animation-name: spin;
-    animation-duration: 4000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-duration: 3500ms;
+    animation-iteration-count: 1;
+    animation-timing-function: 1;
     width: 15%;
 }
 
