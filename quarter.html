@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
+    <script src="js/build/three.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body class="moneyBod">
+    <ul class="pager">
+        <li class="previous"><a href="https://jjheipz24.github.io/CoinConverter/money.html">Go Back</a></li>
+    </ul>
+
+    <h1 class="type">The Quarter</h1>
+    <div class="moneyFacts">
+            <div id="quarter"></div>
+            <div class="info">
+                <ul>
+                    <li>The picture on the front is also of first U.S. president George Washington</li>
+                    <li>The edge of a quarter is rough with around 119 ridges</li>
+                    <li>Before 1965 the quarter was made of real silver</li>
+                    <li>The back of a quarter can have either the bald eagle or one of 50 state-inspired engravings</li>
+                </ul>
+            </div>
+    </div>
+
+    <script>
+        var canvasW =  document.querySelector('#quarter').offsetWidth;
+        var canvasH =  document.querySelector('#quarter').offsetHeight;
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 40, canvasW/canvasH, 0.1, 1000 );
+
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize( canvasW, canvasH );
+        document.querySelector('#quarter').appendChild(renderer.domElement);
+
+        camera.position.z = 3;
+
+        var front = new THREE.CircleGeometry(.5, 35);
+        var back = new THREE.CircleGeometry(.5, 35);
+
+        back.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
+
+        var textureFront = new THREE.TextureLoader().load('img/quarterfront.png' );
+        var textureBack = new THREE.TextureLoader().load('img/quarterback.png' );
+
+        var material1 = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureFront } );
+        var material2 = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureBack } );
+
+        // card
+        coin = new THREE.Object3D();
+
+                // mesh
+        mesh1 = new THREE.Mesh( back, material1 );
+        coin.add( mesh1 );
+        mesh2 = new THREE.Mesh( front, material2 );
+        coin.add( mesh2 );
+
+
+        scene.add( coin );
+
+
+        function animate() {
+            requestAnimationFrame( animate );
+            renderer.render( scene, camera );
+
+            renderer.autoclear = false;
+
+            mesh1.rotation.y += .01;
+            mesh2.rotation.y += .01;
+
+        }
+
+        animate();
+    </script>
+</body>
+</html>

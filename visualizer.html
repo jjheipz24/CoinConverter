@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link href="stylesheet.css" rel="stylesheet">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- animate.css link for text animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+    <title>Coin Counter</title>
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/index.html">Home</a>
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/money.html">Money</a>
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/about.html">About</a>
+                </nav>
+            </div>
+        </header>
+
+        <br>
+
+        <main role="main" class="inner cover" id="content">
+            <h3>Visualizer</h3>
+            <div class="visualizer">
+                <form>
+                    Amount: <input class="moneyInput" type="text" name="value"><br>
+                    <input type="button" id="submitValue" value="Submit">
+                </form>
+
+                <div class="moneyDisplay">
+                    <img class="moneyPics" id="twentyBill" src="media/twentyfront.png">
+                    <img class="moneyPics" id="tenBill" src="media/tenfront.png">
+                    <img class="moneyPics" id="fiveBill" src="media/fivefront.png">
+                    <img class="moneyPics" id="oneBill" src="media/fivefront.png">
+                    <img class="centPics" id="quarterCoin" src="media/quarterfront.png">
+                    <img class="centPics" id="dimeCoin" src="media/dimefront.png">
+                    <img class="centPics" id="nickelCoin" src="media/nickelfront.png">
+                    <img class="centPics" id="pennyCoin" src="media/pennyfront.png">
+                </div>
+
+
+                <section class="amountBoxes">
+                    $20<input class="numAmount" id="twentyInput" type="text" name="value">
+                    $10<input class="numAmount" id="tenInput" type="text" name="value">
+                    $5<input class="numAmount" id="fiveInput" type="text" name="value">
+                    $1<input class="numAmount" id="oneInput" type="text" name="value">
+                    $0.25<input class="numAmount" id="quarterInput" type="text" name="value">
+                    $0.10<input class="numAmount" id="dimeInput" type="text" name="value">
+                    $0.05<input class="numAmount" id="nickelInput" type="text" name="value">
+                    $0.01<input class="numAmount" id="pennyInput" type="text" name="value">
+                </section>
+            </div>
+
+
+        </main>
+
+    </div>
+
+    <script>
+        let moneyValue;
+        let testVar;
+
+        resetHighlight("twentyBill");
+        resetHighlight("tenBill");
+        resetHighlight("fiveBill");
+        resetHighlight("oneBill");
+        resetHighlight("quarterCoin");
+        resetHighlight("dimeCoin");
+        resetHighlight("nickelCoin");
+        resetHighlight("pennyCoin");
+
+        //Takes in an amount
+        //Recursively finds the amount of bills/coins that total the amount
+        function MoneyDivider(amnt) {
+
+            if (amnt >= 20) {
+                MoneyDivider(CalcNewAmount(amnt, 20, "#twentyInput"));
+
+            } else if (amnt >= 10) {
+                MoneyDivider(CalcNewAmount(amnt, 10, "#tenInput"));
+                //$("#ten").val(numMoney.toString());
+            } else if (amnt >= 5) {
+                MoneyDivider(CalcNewAmount(amnt, 5, "#fiveInput"));
+                //$("#five").val(numMoney.toString());
+            } else if (amnt >= 1) {
+
+                MoneyDivider(CalcNewAmount(amnt, 1, "#oneInput"));
+                //$("#one").val(numMoney.toString());
+            } else if (amnt >= .25) {
+
+                MoneyDivider(CalcNewAmount(amnt, .25, "#quarterInput"));
+                // $("#quarter").val(numMoney.toString());
+            } else if (amnt >= .10) {
+
+                MoneyDivider(CalcNewAmount(amnt, .10, "#dimeInput"));
+                //$("#dime").val(numMoney.toString());
+            } else if (amnt >= .05) {
+
+                MoneyDivider(CalcNewAmount(amnt, .05, "#nickelInput"));
+                //$("#nickel").val(numMoney.toString());
+            } else if (amnt >= .01 || amnt <= .01 && amnt >= 0) {
+
+                MoneyDivider(CalcNewAmount(amnt, .01, "#pennyInput"));
+            } else {
+                console.log("done");
+            }
+        }
+
+        //Takes in an amount, the value of the bill/coin, and the id of the input box
+        //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
+        function CalcNewAmount(amnt, money, boxID) {
+            let numMoney;
+            //divide the amount left by the value of the bill/coin
+            let newAmnt = amnt / money;
+            //if working with pennies, check if amount left divided by pennies is greater than or equal to 1
+            //if it is, round to whole number, and set the numMoney to that value
+            if (money == 0.01) {
+                if (newAmnt >= 1) {
+                    newAmnt = newAmnt.toFixed(0);
+                    numMoney = newAmnt;
+                    //if newAmount is less than 0.5, numMoney is equal to 0 because round down
+                } else if (newAmnt < 0.5) {
+                    numMoney = 0;
+                    //round up otherwise
+                } else {
+                    numMoney = 1;
+                }
+                //round down to the lesser integer
+                //subtract the amount by the number of bills/coins to get the new amount left
+                //set the number of bills/coins to the value in the box
+                //return the new amount left
+            } else {
+                numMoney = Math.floor(newAmnt);
+                newAmnt = amnt - (numMoney * money);
+                $(boxID).val(numMoney);
+                return newAmnt;
+            }
+
+            $(boxID).val(numMoney);
+        };
+        //clears the values in the boxes the next time an amount is inserted
+        $(".moneyInput").change(function() {
+            $("#twentyInput").val("");
+            $("#tenInput").val("");
+            $("#fiveInput").val("");
+            $("#oneInput").val("");
+            $("#quarterInput").val("");
+            $("#dimeInput").val("");
+            $("#nickelInput").val("");
+            $("#pennyInput").val("");
+
+            resetHighlight("twentyBill");
+            resetHighlight("tenBill");
+            resetHighlight("fiveBill");
+            resetHighlight("oneBill");
+            resetHighlight("quarterCoin");
+            resetHighlight("dimeCoin");
+            resetHighlight("nickelCoin");
+            resetHighlight("pennyCoin");
+        });
+
+        function highlight(inputBox, moneyImage) {
+            if ($(inputBox).val() == 0) {
+                console.log(inputBox);
+                //$(moneyImage).css('opactiy', '0.5');
+                document.getElementById(moneyImage).style.opacity = "0.2";
+            }
+        };
+
+        function resetHighlight(moneyImage) {
+            document.getElementById(moneyImage).style.opacity = "1";
+        }
+
+        //begins calculations
+        $("#submitValue").click(function() {
+            moneyValue = $(".moneyInput").val();
+            MoneyDivider(moneyValue);
+
+            highlight("#twentyInput", "twentyBill");
+            highlight("#tenInput", "tenBill");
+            highlight("#fiveInput", "fiveBill");
+            highlight("#oneInput", "oneBill");
+            highlight("#quarterInput", "quarterCoin");
+            highlight("#dimeInput", "dimeCoin");
+            highlight("#nickelInput", "nickelCoin");
+            highlight("#pennyInput", "pennyCoin");
+
+            //event.preventDefault();
+        });
+    </script>
+
+</body>
+
+</html>

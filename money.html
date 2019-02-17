@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link href="stylesheet.css" rel="stylesheet">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- animate.css link for text animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+    <!--links for icon-->
+    <link rel="icon" href="media/coinIcon.png">
+
+    <title>Coin Counter</title>
+</head>
+
+<div id="logo-container">
+    <img id="logo" class="img-thumbnail" src="media/coinIcon-scaled.png" alt="Coin Counter">
+</div>
+
+<body class="text-center">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/index.html">Home</a>
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/money.html">Money</a>
+                    <a class="nav-link" href="https://jjheipz24.github.io/CoinConverter/about.html">About</a>
+                </nav>
+            </div>
+        </header>
+
+        <br>
+
+        <main role="main" class="inner cover">
+            <h3>Click on the images for more information</h3>
+            <div class="moneyDisplay">
+                <img class="moneyPics" id="twentyBill" src="media/twentyfront.png">
+                <img class="moneyPics" id="tenBill" src="media/tenfront.png">
+                <img class="moneyPics" id="fiveBill" src="media/fivefront.png">
+                <img class="moneyPics" id="oneBill" src="media/onefront.png">
+                <img class="centPics" id="quarterCoin" src="media/quarterfront.png">
+                <img class="centPics" id="dimeCoin" src="media/dimefront.png">
+                <img class="centPics" id="nickleCoin" src="media/nickelfront.png">
+                <img class="centPics" id="pennyCoin" src="media/pennyfront.png">
+            </div>
+
+        </main>
+
+    </div>
+    <script>
+        $("#twentyBill").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/twenty.html';
+        });
+        $("#tenBill").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/ten.html;
+        });
+        $("#fiveBill").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/five.html';
+        });
+        $("#oneBill").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/one.html';
+        });
+        $("#quarterCoin").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/quarter.html';
+        });
+        $("#dimeCoin").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/dime.html';
+        });
+        $("#nickelCoin").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/nickel.html';
+        });
+        $("#pennyCoin").click(function(){
+            window.location.href='https://jjheipz24.github.io/CoinConverter/penny.html';
+        });
+    </script>
+</body>
+
+</html>
