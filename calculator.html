@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link href="stylesheet.css" rel="stylesheet">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- animate.css link for text animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+    <title>Coin Counter</title>
+</head>
+
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <br>
+
+        <main role="main" class="inner cover">
+            <div class="visualizer">
+                <form>
+                    Amount: <input class="moneyInput" type="text" name="value"><br>
+                    <input type="button" id="submitValue" value="submit">
+                </form>
+                <section class="amountBoxes">
+                    $20<input class="numAmount" id="twenty" type="text" name="value">
+                    $10<input class="numAmount" id="ten" type="text" name="value">
+                    $5<input class="numAmount" id="five" type="text" name="value">
+                    $1<input class="numAmount" id="one" type="text" name="value">
+                    $0.25<input class="numAmount" id="quarter" type="text" name="value">
+                    $0.10<input class="numAmount" id="dime" type="text" name="value">
+                    $0.05<input class="numAmount" id="nickel" type="text" name="value">
+                    $0.01<input class="numAmount" id="penny" type="text" name="value">
+                </section>
+                <div id="canvas"></div>
+            </div>
+
+
+        </main>
+
+    </div>
+
+    <script>
+        let moneyValue;
+
+
+        //Takes in an amount
+        //Recursively finds the amount of bills/coins that total the amount
+        function MoneyDivider(amnt) {
+
+            if (amnt >= 20) {
+                MoneyDivider(CalcNewAmount(amnt, 20, "#twenty"));
+
+            } else if (amnt >= 10) {
+                MoneyDivider(CalcNewAmount(amnt, 10, "#ten"));
+                //$("#ten").val(numMoney.toString());
+            } else if (amnt >= 5) {
+                MoneyDivider(CalcNewAmount(amnt, 5, "#five"));
+                //$("#five").val(numMoney.toString());
+            } else if (amnt >= 1) {
+                console.log("ran");
+                MoneyDivider(CalcNewAmount(amnt, 1, "#one"));
+                //$("#one").val(numMoney.toString());
+            } else if (amnt >= .25) {
+
+                MoneyDivider(CalcNewAmount(amnt, .25, "#quarter"));
+                // $("#quarter").val(numMoney.toString());
+            } else if (amnt >= .10) {
+
+                MoneyDivider(CalcNewAmount(amnt, .10, "#dime"));
+                //$("#dime").val(numMoney.toString());
+            } else if (amnt >= .05) {
+
+                MoneyDivider(CalcNewAmount(amnt, .05, "#nickel"));
+                //$("#nickel").val(numMoney.toString());
+            } else if (amnt >= .01) {
+
+                MoneyDivider(CalcNewAmount(amnt, .01, "#penny"));
+            } else {
+                console.log("done");
+            }
+        }
+
+        //Takes in an amount, the value of the bill/coin, and the id of the input box
+        //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
+        function CalcNewAmount(amnt, money, boxID) {
+            let newAmnt = amnt / money;
+            if (money == .01) {
+                var numMoney = Math.ceil(newAmnt);
+            } else {
+                var numMoney = Math.floor(newAmnt);
+            }
+            console.log(numMoney);
+            newAmnt = amnt - (numMoney * money);
+            $(boxID).val(numMoney);
+            return newAmnt;
+        };
+
+        $("#submitValue").click(function() {
+            moneyValue = $(".moneyInput").val();
+            MoneyDivider(moneyValue);
+            //event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
