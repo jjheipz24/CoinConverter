@@ -182,7 +182,14 @@ Animation for coin spinning
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
-        width: 90vw
+        width: 90vw;
+    }
+    .amountBoxes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 10vw;
     }
 }
 
@@ -348,8 +355,25 @@ form {
     cursor: pointer;
 }
 
-/* On money page */
+.moneyClick {
+    width: 60vw;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
 
-#quarterCoin {
-    margin-left: 10vw;
+.numAmount {
+    width: 50px;
+}
+
+.amountBoxes {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    align-content: center;
+    align-items: center;
+}
+
+#content {
+    margin-top: -10vh;
 }

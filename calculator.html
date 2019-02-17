@@ -40,23 +40,37 @@
 
         <br>
 
-        <main role="main" class="inner cover">
+        <main role="main" class="inner cover" id="content">
+            <h3>Calculator</h3>
             <div class="visualizer">
-                <form>
-                    Amount: <input class="moneyInput" type="text" name="value"><br>
-                    <input type="button" id="submitValue" value="submit">
-                </form>
+
+                <div class="moneyDisplay">
+                    <img class="moneyPics" id="twentyBill" src="media/twentyfront.png">
+                    <img class="moneyPics" id="tenBill" src="media/tenfront.png">
+                    <img class="moneyPics" id="fiveBill" src="media/fivefront.png">
+                    <img class="moneyPics" id="oneBill" src="media/fivefront.png">
+                    <img class="centPics" id="quarterCoin" src="media/quarterfront.png">
+                    <img class="centPics" id="dimeCoin" src="media/dimefront.png">
+                    <img class="centPics" id="nickleCoin" src="media/nickelfront.png">
+                    <img class="centPics" id="pennyCoin" src="media/pennyfront.png">
+                </div>
+
                 <section class="amountBoxes">
-                    $20<input class="numAmount" id="twenty" type="text" name="value">
-                    $10<input class="numAmount" id="ten" type="text" name="value">
-                    $5<input class="numAmount" id="five" type="text" name="value">
-                    $1<input class="numAmount" id="one" type="text" name="value">
-                    $0.25<input class="numAmount" id="quarter" type="text" name="value">
-                    $0.10<input class="numAmount" id="dime" type="text" name="value">
-                    $0.05<input class="numAmount" id="nickel" type="text" name="value">
-                    $0.01<input class="numAmount" id="penny" type="text" name="value">
+                    <!--<form>
+                        Amount: <input class="moneyInput" type="text" name="value"><br>
+                        <input type="button" id="submitValue" value="submit">
+                    </form>-->
+                    $20
+                    <input class="numAmount" id="twenty" type="text" name="value"> $10
+                    <input class="numAmount" id="ten" type="text" name="value"> $5
+                    <input class="numAmount" id="five" type="text" name="value"> $1
+                    <input class="numAmount" id="one" type="text" name="value"> $0.25
+                    <input class="numAmount" id="quarter" type="text" name="value"> $0.10
+                    <input class="numAmount" id="dime" type="text" name="value"> $0.05
+                    <input class="numAmount" id="nickel" type="text" name="value"> $0.01
+                    <input class="numAmount" id="penny" type="text" name="value">
+                    <input type="button" id="submitValue" value="Clear">
                 </section>
-                <div id="canvas"></div>
             </div>
 
 
@@ -65,67 +79,26 @@
     </div>
 
     <script>
-        let moneyValue;
+        let timesTwenty = 0;
 
-
-        //Takes in an amount
-        //Recursively finds the amount of bills/coins that total the amount
-        function MoneyDivider(amnt) {
-
-            if (amnt >= 20) {
-                MoneyDivider(CalcNewAmount(amnt, 20, "#twenty"));
-
-            } else if (amnt >= 10) {
-                MoneyDivider(CalcNewAmount(amnt, 10, "#ten"));
-                //$("#ten").val(numMoney.toString());
-            } else if (amnt >= 5) {
-                MoneyDivider(CalcNewAmount(amnt, 5, "#five"));
-                //$("#five").val(numMoney.toString());
-            } else if (amnt >= 1) {
-                console.log("ran");
-                MoneyDivider(CalcNewAmount(amnt, 1, "#one"));
-                //$("#one").val(numMoney.toString());
-            } else if (amnt >= .25) {
-
-                MoneyDivider(CalcNewAmount(amnt, .25, "#quarter"));
-                // $("#quarter").val(numMoney.toString());
-            } else if (amnt >= .10) {
-
-                MoneyDivider(CalcNewAmount(amnt, .10, "#dime"));
-                //$("#dime").val(numMoney.toString());
-            } else if (amnt >= .05) {
-
-                MoneyDivider(CalcNewAmount(amnt, .05, "#nickel"));
-                //$("#nickel").val(numMoney.toString());
-            } else if (amnt >= .01) {
-
-                MoneyDivider(CalcNewAmount(amnt, .01, "#penny"));
-            } else {
-                console.log("done");
-            }
-        }
-
-        //Takes in an amount, the value of the bill/coin, and the id of the input box
-        //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
-        function CalcNewAmount(amnt, money, boxID) {
-            let newAmnt = amnt / money;
-            if (money == .01) {
-                var numMoney = Math.ceil(newAmnt);
-            } else {
-                var numMoney = Math.floor(newAmnt);
-            }
-            console.log(numMoney);
-            newAmnt = amnt - (numMoney * money);
-            $(boxID).val(numMoney);
-            return newAmnt;
+        function changeAmount(imgID, boxID, boxCounter) {
+            $(imgID).click(function() {
+                boxCounter += 1;
+                $(boxID).val(boxCounter);
+                console.log(boxID + boxCounter);
+            });
         };
 
-        $("#submitValue").click(function() {
-            moneyValue = $(".moneyInput").val();
-            MoneyDivider(moneyValue);
-            //event.preventDefault();
-        });
+        changeAmount("#twentyBill", "#twenty", timesTwenty);
+        changeAmount("#tenBill", "#ten", timesTwenty);
+        changeAmount("#fiveBill", "#five", timesTwenty);
+        changeAmount("#oneBill", "#one", timesTwenty);
+        changeAmount("#quarterCoin", "#quarter", timesTwenty);
+        changeAmount("#dimeCoin", "#dime", timesTwenty);
+        changeAmount("#nickleCoin", "#nickel", timesTwenty);
+        changeAmount("#pennyCoin", "#penny", timesTwenty);
     </script>
+
 </body>
 
 </html>
