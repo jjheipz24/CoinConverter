@@ -47,14 +47,14 @@
                     <input type="button" id="submitValue" value="Submit">
                 </form>
                 <section class="amountBoxes">
-                    $20<input class="numAmount" id="twenty" type="text" name="value">
-                    $10<input class="numAmount" id="ten" type="text" name="value">
-                    $5<input class="numAmount" id="five" type="text" name="value">
-                    $1<input class="numAmount" id="one" type="text" name="value">
-                    $0.25<input class="numAmount" id="quarter" type="text" name="value">
-                    $0.10<input class="numAmount" id="dime" type="text" name="value">
-                    $0.05<input class="numAmount" id="nickel" type="text" name="value">
-                    $0.01<input class="numAmount" id="penny" type="text" name="value">
+                    $20<input class="numAmount" id="twentyInput" type="text" name="value">
+                    $10<input class="numAmount" id="tenInput" type="text" name="value">
+                    $5<input class="numAmount" id="fiveInput" type="text" name="value">
+                    $1<input class="numAmount" id="oneInput" type="text" name="value">
+                    $0.25<input class="numAmount" id="quarterInput" type="text" name="value">
+                    $0.10<input class="numAmount" id="dimeInput" type="text" name="value">
+                    $0.05<input class="numAmount" id="nickelInput" type="text" name="value">
+                    $0.01<input class="numAmount" id="pennyInput" type="text" name="value">
                 </section>
             </div>
 
@@ -73,33 +73,33 @@
         function MoneyDivider(amnt) {
 
             if (amnt >= 20) {
-                MoneyDivider(CalcNewAmount(amnt, 20, "#twenty"));
+                MoneyDivider(CalcNewAmount(amnt, 20, "#twentyInput"));
 
             } else if (amnt >= 10) {
-                MoneyDivider(CalcNewAmount(amnt, 10, "#ten"));
+                MoneyDivider(CalcNewAmount(amnt, 10, "#tenInput"));
                 //$("#ten").val(numMoney.toString());
             } else if (amnt >= 5) {
-                MoneyDivider(CalcNewAmount(amnt, 5, "#five"));
+                MoneyDivider(CalcNewAmount(amnt, 5, "#fiveInput"));
                 //$("#five").val(numMoney.toString());
             } else if (amnt >= 1) {
 
-                MoneyDivider(CalcNewAmount(amnt, 1, "#one"));
+                MoneyDivider(CalcNewAmount(amnt, 1, "#oneInput"));
                 //$("#one").val(numMoney.toString());
             } else if (amnt >= .25) {
 
-                MoneyDivider(CalcNewAmount(amnt, .25, "#quarter"));
+                MoneyDivider(CalcNewAmount(amnt, .25, "#quarterInput"));
                 // $("#quarter").val(numMoney.toString());
             } else if (amnt >= .10) {
 
-                MoneyDivider(CalcNewAmount(amnt, .10, "#dime"));
+                MoneyDivider(CalcNewAmount(amnt, .10, "#dimeInput"));
                 //$("#dime").val(numMoney.toString());
             } else if (amnt >= .05) {
 
-                MoneyDivider(CalcNewAmount(amnt, .05, "#nickel"));
+                MoneyDivider(CalcNewAmount(amnt, .05, "#nickelInput"));
                 //$("#nickel").val(numMoney.toString());
             } else if (amnt >= .01 || amnt <= .01 && amnt >= 0) {
 
-                MoneyDivider(CalcNewAmount(amnt, .01, "#penny"));
+                MoneyDivider(CalcNewAmount(amnt, .01, "#pennyInput"));
             } else {
                 console.log("done");
             }
@@ -139,14 +139,14 @@
         };
         //clears the values in the boxes the next time an amount is inserted
         $(".moneyInput").change(function() {
-            $("#twenty").val("");
-            $("#ten").val("");
-            $("#five").val("");
-            $("#one").val("");
-            $("#quarter").val("");
-            $("#dime").val("");
-            $("#nickel").val("");
-            $("#penny").val("");
+            $("#twentyInput").val("");
+            $("#tenInput").val("");
+            $("#fiveInput").val("");
+            $("#oneInput").val("");
+            $("#quarterInput").val("");
+            $("#dimeInput").val("");
+            $("#nickelInput").val("");
+            $("#pennyInput").val("");
         })
         //begins calculations
         $("#submitValue").click(function() {
