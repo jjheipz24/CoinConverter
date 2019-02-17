@@ -1,1 +1,1 @@
-# CoinConverter
+# CoinCounter
