@@ -163,10 +163,40 @@ Animation for coin spinning
     .visualizer {
         flex-direction: column;
     }
+    .visOption {
+        border-right: 2px solid black;
+        padding: 4em;
+    }
+    .calcOption {
+        padding: 4em;
+    }
+    .mainOptions {
+        justify-content: space-between
+    }
+}
+
+@media (max-width: 768px) {
+    .mainOptions {
+        display: flex;
+        flex-direction: column;
+    }
+    .visOption {
+        border-right: none;
+        border-bottom: 2px solid black;
+        padding: 2em 0;
+    }
+    .calcOption {
+        padding: 2em 0;
+    }
+    .mainOptions {
+        justify-content: center;
+        align-items: center;
+    }
 
 }
 
 /* For entire content on visualizer page */
+
 .visualizer {
     display: flex;
     flex-direction: row;
@@ -175,6 +205,7 @@ Animation for coin spinning
 }
 
 /* Input for amount of money*/
+
 form {
     display: flex;
     flex-direction: column;
@@ -183,6 +214,7 @@ form {
 }
 
 /* Where Three.js canvas will go*/
+
 #canvas {
     width: 70%;
     border: 1px solid black;
@@ -224,7 +256,7 @@ form {
 
 #logo-container {
     left: 0;
-    top:0;
+    top: 0;
     position: fixed;
     text-align: left;
     margin: 15px;
@@ -242,21 +274,18 @@ form {
     direction: row;
     width: 90vw;
     margin: 0 5vw;
-    justify-content: space-between;
 }
 
 .visOption {
     width: 45vw;
-    border-right: 2px solid black;
-    padding: 4em;
 }
 
 .calcOption {
     width: 45vw;
-    padding: 4em;
 }
 
-.visOption:hover, .calcOption:hover {
+.visOption:hover,
+.calcOption:hover {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.5);
 }
