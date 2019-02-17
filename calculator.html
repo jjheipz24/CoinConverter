@@ -102,6 +102,12 @@
             });
         };
 
+        function clearAmount(boxID, boxCounter) {
+            boxCounter = 0;
+            $(boxID).val('');
+            $(".totalValue").html("0.00");
+        }
+
         changeAmount("#twentyBill", "#twenty", timesTwenty, 20.00);
         changeAmount("#tenBill", "#ten", timesTen, 10.00);
         changeAmount("#fiveBill", "#five", timesFive, 5.00);
@@ -112,8 +118,16 @@
         changeAmount("#pennyCoin", "#penny", timesPenny, 0.01);
 
         $("#clearValue").click(function() {
-
-        })
+            clearAmount("#twenty", timesTwenty);
+            clearAmount("#ten", timesTen);
+            clearAmount("#five", timesFive);
+            clearAmount("#one", timesOne);
+            clearAmount("#quarter", timesQuarter);
+            clearAmount("#dime", timesDime);
+            clearAmount("#nickel", timesNickel);
+            clearAmount("#penny", timesPenny);
+            totalVal = 0.00;
+        });
     </script>
 
 </body>
