@@ -12,32 +12,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body class="moneyBod">
     <ul class="pager">
-        <li class="previous"><a href="https://jjheipz24.github.io/CoinConverter/money.html">Go Back</a></li>
+        <li class="previous"><a href="https://jjheipz24.github.io/CoinCounter/money.html">Go Back</a></li>
     </ul>
 
     <h1 class="type">The Nickel</h1>
     <div class="moneyFacts">
-            <div id="nickel"></div>
-            <div class="info">
-                <ul>
-                    <li>The picture on the front is Thomas Jefferson, the 7th president of the United States</li>
-                    <li>On the back is Thomas Jefferson's home, Monticello</li>
-                    <li>The nickel was originaly called the "half disme"</li>
-                    <li>Nickels used to be smaller because they were made of silver, which cost more</li>
-                </ul>
-            </div>
+        <div id="nickel"></div>
+        <div class="info">
+            <ul>
+                <li>The picture on the front is Thomas Jefferson, the 7th president of the United States</li>
+                <li>On the back is Thomas Jefferson's home, Monticello</li>
+                <li>The nickel was originaly called the "half disme"</li>
+                <li>Nickels used to be smaller because they were made of silver, which cost more</li>
+            </ul>
+        </div>
     </div>
 
     <script>
-        var canvasW =  document.querySelector('#nickel').offsetWidth;
-        var canvasH =  document.querySelector('#nickel').offsetHeight;
+        var canvasW = document.querySelector('#nickel').offsetWidth;
+        var canvasH = document.querySelector('#nickel').offsetHeight;
         var scene = new THREE.Scene();
-        var camera = new THREE.PerspectiveCamera( 40, canvasW/canvasH, 0.1, 1000 );
+        var camera = new THREE.PerspectiveCamera(40, canvasW / canvasH, 0.1, 1000);
 
-        renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize( canvasW, canvasH );
+        renderer = new THREE.WebGLRenderer({
+            alpha: true
+        });
+        renderer.setSize(canvasW, canvasH);
         document.querySelector('#nickel').appendChild(renderer.domElement);
 
         camera.position.z = 3;
@@ -45,30 +48,36 @@
         var front = new THREE.CircleGeometry(.5, 35);
         var back = new THREE.CircleGeometry(.5, 35);
 
-        back.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
+        back.applyMatrix(new THREE.Matrix4().makeRotationY(Math.PI));
 
-        var textureFront = new THREE.TextureLoader().load('img/nickelfront.png' );
-        var textureBack = new THREE.TextureLoader().load('img/nickelback.png' );
+        var textureFront = new THREE.TextureLoader().load('img/nickelfront.png');
+        var textureBack = new THREE.TextureLoader().load('img/nickelback.png');
 
-        var material1 = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureFront } );
-        var material2 = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureBack } );
+        var material1 = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: textureFront
+        });
+        var material2 = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: textureBack
+        });
 
         // card
         coin = new THREE.Object3D();
 
-                // mesh
-        mesh1 = new THREE.Mesh( back, material1 );
-        coin.add( mesh1 );
-        mesh2 = new THREE.Mesh( front, material2 );
-        coin.add( mesh2 );
+        // mesh
+        mesh1 = new THREE.Mesh(back, material1);
+        coin.add(mesh1);
+        mesh2 = new THREE.Mesh(front, material2);
+        coin.add(mesh2);
 
 
-        scene.add( coin );
+        scene.add(coin);
 
 
         function animate() {
-            requestAnimationFrame( animate );
-            renderer.render( scene, camera );
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
 
             renderer.autoclear = false;
 

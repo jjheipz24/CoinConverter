@@ -12,33 +12,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body class="moneyBod">
     <ul class="pager">
-        <li class="previous"><a href="https://jjheipz24.github.io/CoinConverter/money.html">Go Back</a></li>
+        <li class="previous"><a href="https://jjheipz24.github.io/CoinCounter/money.html">Go Back</a></li>
     </ul>
 
     <h1 class="type">The Ten Dollar Bill</h1>
     <div class="moneyFacts">
-            <div id="ten"></div>
-            <div class="info">
-                <ul>
-                    <li>The picture on the front is of the first U.S. Secretary of the Treasury, Alexander Hamilton</li>
-                    <li>On the back is the U.S. Treasury Building</li>
-                    <li>The $10 bill is the only bill where the person pn the front is facing to the left</li>
-                    <li>The $10 bill and the $100 bill are the only bills with non-presidents on the front</li>
-                </ul>
-            </div>
+        <div id="ten"></div>
+        <div class="info">
+            <ul>
+                <li>The picture on the front is of the first U.S. Secretary of the Treasury, Alexander Hamilton</li>
+                <li>On the back is the U.S. Treasury Building</li>
+                <li>The $10 bill is the only bill where the person pn the front is facing to the left</li>
+                <li>The $10 bill and the $100 bill are the only bills with non-presidents on the front</li>
+            </ul>
+        </div>
     </div>
 
     <script>
-    //$10
+        //$10
 
-        var canvasW =  document.querySelector('#ten').offsetWidth;
-        var canvasH =  document.querySelector('#ten').offsetHeight;
+        var canvasW = document.querySelector('#ten').offsetWidth;
+        var canvasH = document.querySelector('#ten').offsetHeight;
         var sceneBill = new THREE.Scene();
-        var cameraBill = new THREE.PerspectiveCamera( 85,canvasW/canvasH, 0.1, 1000 );
+        var cameraBill = new THREE.PerspectiveCamera(85, canvasW / canvasH, 0.1, 1000);
 
-        var renderer = new THREE.WebGLRenderer({ alpha: true });
+        var renderer = new THREE.WebGLRenderer({
+            alpha: true
+        });
 
         renderer.setSize(canvasW, canvasH);
         document.querySelector('#ten').appendChild(renderer.domElement);
@@ -48,30 +51,36 @@
         var frontB = new THREE.PlaneGeometry(3.8, 2);
         var backB = new THREE.PlaneGeometry(3.8, 2);
 
-        backB.applyMatrix( new THREE.Matrix4().makeRotationY( Math.PI ) );
+        backB.applyMatrix(new THREE.Matrix4().makeRotationY(Math.PI));
 
-        var textureFrontB = new THREE.TextureLoader().load('img/tenfront.png' );
-        var textureBackB = new THREE.TextureLoader().load('img/tenback.png' );
+        var textureFrontB = new THREE.TextureLoader().load('img/tenfront.png');
+        var textureBackB = new THREE.TextureLoader().load('img/tenback.png');
 
-        var material1B = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureFrontB } );
-        var material2B = new THREE.MeshBasicMaterial( { color: 0xffffff, map: textureBackB } );
+        var material1B = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: textureFrontB
+        });
+        var material2B = new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            map: textureBackB
+        });
 
         // card
         bill = new THREE.Object3D();
 
-                // mesh
-        mesh1B = new THREE.Mesh( backB, material1B );
-        bill.add( mesh1B );
-        mesh2B = new THREE.Mesh( frontB, material2B );
-        bill.add( mesh2B );
+        // mesh
+        mesh1B = new THREE.Mesh(backB, material1B);
+        bill.add(mesh1B);
+        mesh2B = new THREE.Mesh(frontB, material2B);
+        bill.add(mesh2B);
 
 
-        sceneBill.add( bill );
+        sceneBill.add(bill);
 
 
         function animate() {
-            requestAnimationFrame( animate );
-            renderer.render( sceneBill, cameraBill );
+            requestAnimationFrame(animate);
+            renderer.render(sceneBill, cameraBill);
 
             mesh1B.rotation.y += .01;
             mesh2B.rotation.y += .01;
