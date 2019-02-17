@@ -82,24 +82,24 @@
                 MoneyDivider(CalcNewAmount(amnt, 5, "#five"));
                 //$("#five").val(numMoney.toString());
             } else if (amnt >= 1) {
+                console.log("ran");
                 MoneyDivider(CalcNewAmount(amnt, 1, "#one"));
                 //$("#one").val(numMoney.toString());
             } else if (amnt >= .25) {
-                amnt = amnt * 10;
-                MoneyDivider(CalcNewAmount(amnt, 25, "#quarter"));
+
+                MoneyDivider(CalcNewAmount(amnt, .25, "#quarter"));
                 // $("#quarter").val(numMoney.toString());
             } else if (amnt >= .10) {
-                amnt = amnt * 10;
-                MoneyDivider(CalcNewAmount(amnt, 10, "#dime"));
+
+                MoneyDivider(CalcNewAmount(amnt, .10, "#dime"));
                 //$("#dime").val(numMoney.toString());
             } else if (amnt >= .05) {
-                amnt = amnt * 10;
-                MoneyDivider(CalcNewAmount(amnt, 5, "#nickel"));
+
+                MoneyDivider(CalcNewAmount(amnt, .05, "#nickel"));
                 //$("#nickel").val(numMoney.toString());
             } else if (amnt >= .01) {
-                amnt = amnt * 10;
-                MoneyDivider(CalcNewAmount(amnt, 1, "#penny"));
-                //$("#penny").val(numMoney.toString());
+
+                MoneyDivider(CalcNewAmount(amnt, .01, "#penny"));
             } else {
                 console.log("done");
             }
@@ -109,7 +109,11 @@
         //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
         function CalcNewAmount(amnt, money, boxID) {
             let newAmnt = amnt / money;
-            let numMoney = Math.floor(newAmnt);
+            if (money == .01) {
+                var numMoney = Math.ceil(newAmnt);
+            } else {
+                var numMoney = Math.floor(newAmnt);
+            }
             console.log(numMoney);
             newAmnt = amnt - (numMoney * money);
             $(boxID).val(numMoney);
