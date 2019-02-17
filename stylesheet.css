@@ -196,11 +196,13 @@ Animation for coin spinning
         flex-wrap: wrap;
         width: 10vw;
     }
+
     .moneyFacts {
         display: flex;
         flex-direction: row;
         justify-content: left;
     }
+
     #ten,
     #twenty,
     #five,
@@ -214,9 +216,11 @@ Animation for coin spinning
         height: 50vh;
         align-self: flex-start;
     }
+
     .info {
         width: 500px;
     }
+
 }
 
 @media (max-width: 768px) {
@@ -246,6 +250,7 @@ Animation for coin spinning
         align-items: center;
         flex-wrap: nowrap;
     }
+
     .moneyFacts {
         display: flex;
         flex-direction: column;
@@ -278,6 +283,12 @@ Animation for coin spinning
         word-wrap: normal;
         width: 90vw;
     }
+
+    h3 {
+        padding-top: 20px;
+    }
+
+
 }
 
 /* For entire content on visualizer page */
@@ -304,39 +315,6 @@ form {
     width: 70%;
     border: 1px solid black;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #logo-container {
@@ -444,6 +422,8 @@ form {
 
 #content {
     margin-top: -10vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #price {
