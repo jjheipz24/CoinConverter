@@ -71,7 +71,7 @@
                     <input class="numAmount" id="penny" type="text" name="value">
                     <h1 class="totalValue">0.00</h1>
 
-                    <input type="button" id="submitValue" value="Clear">
+                    <input type="button" id="clearValue" value="Clear">
                 </section>
             </div>
 
@@ -110,6 +110,10 @@
         changeAmount("#dimeCoin", "#dime", timesDime, 0.10);
         changeAmount("#nickleCoin", "#nickel", timesNickel, 0.05);
         changeAmount("#pennyCoin", "#penny", timesPenny, 0.01);
+
+        $("#clearValue").click(function() {
+
+        })
     </script>
 
 </body>
