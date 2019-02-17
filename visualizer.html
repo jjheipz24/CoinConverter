@@ -32,20 +32,34 @@
             <div class="inner">
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">Money</a>
+                    <a class="nav-link" href="#">About</a>
                 </nav>
             </div>
         </header>
 
         <br>
 
-        <main role="main" class="inner cover">
+        <main role="main" class="inner cover" id="content">
+            <h3>Visualizer</h3>
             <div class="visualizer">
                 <form>
                     Amount: <input class="moneyInput" type="text" name="value"><br>
                     <input type="button" id="submitValue" value="Submit">
                 </form>
+
+                <div class="moneyDisplay">
+                    <img class="moneyPics" id="twentyBill" src="media/twentyfront.png">
+                    <img class="moneyPics" id="tenBill" src="media/tenfront.png">
+                    <img class="moneyPics" id="fiveBill" src="media/fivefront.png">
+                    <img class="moneyPics" id="oneBill" src="media/fivefront.png">
+                    <img class="centPics" id="quarterCoin" src="media/quarterfront.png">
+                    <img class="centPics" id="dimeCoin" src="media/dimefront.png">
+                    <img class="centPics" id="nickelCoin" src="media/nickelfront.png">
+                    <img class="centPics" id="pennyCoin" src="media/pennyfront.png">
+                </div>
+
+
                 <section class="amountBoxes">
                     $20<input class="numAmount" id="twentyInput" type="text" name="value">
                     $10<input class="numAmount" id="tenInput" type="text" name="value">
@@ -67,6 +81,14 @@
         let moneyValue;
         let testVar;
 
+            resetHighlight("twentyBill");
+            resetHighlight("tenBill");
+            resetHighlight("fiveBill");
+            resetHighlight("oneBill");
+            resetHighlight("quarterCoin");
+            resetHighlight("dimeCoin");
+            resetHighlight("nickelCoin");
+            resetHighlight("pennyCoin");
 
         //Takes in an amount
         //Recursively finds the amount of bills/coins that total the amount
@@ -147,14 +169,47 @@
             $("#dimeInput").val("");
             $("#nickelInput").val("");
             $("#pennyInput").val("");
-        })
+
+            resetHighlight("twentyBill");
+            resetHighlight("tenBill");
+            resetHighlight("fiveBill");
+            resetHighlight("oneBill");
+            resetHighlight("quarterCoin");
+            resetHighlight("dimeCoin");
+            resetHighlight("nickelCoin");
+            resetHighlight("pennyCoin");
+        });
+
+        function highlight(inputBox, moneyImage) {
+            if( $(inputBox).val() == 0){
+                console.log(inputBox);
+                //$(moneyImage).css('opactiy', '0.5');
+                document.getElementById(moneyImage).style.opacity = "0.5";
+            }
+        };
+
+        function resetHighlight(moneyImage) {
+            document.getElementById(moneyImage).style.opacity = "1";
+        }
+
         //begins calculations
         $("#submitValue").click(function() {
             moneyValue = $(".moneyInput").val();
             MoneyDivider(moneyValue);
+
+            highlight("#twentyInput", "twentyBill");
+            highlight("#tenInput", "tenBill");
+            highlight("#fiveInput", "fiveBill");
+            highlight("#oneInput", "oneBill");
+            highlight("#quarterInput", "quarterCoin");
+            highlight("#dimeInput", "dimeCoin");
+            highlight("#nickelInput", "nickelCoin");
+            highlight("#pennyInput", "pennyCoin");
+
             //event.preventDefault();
         });
     </script>
+
 </body>
 
 </html>
