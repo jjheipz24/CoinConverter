@@ -460,3 +460,7 @@ form {
     color: white;
     font-family: sans-serif;
 }
+
+h3 {
+    margin-top: 50px;
+}
