@@ -1,0 +1,311 @@
+/* Body formatting for all the content of the page */
+
+.text-center {
+    margin-top: 10%;
+    /*background-color: white;*/
+    background-image: url(media/lighter.png);
+    overflow: hidden;
+}
+
+/* Changes font of title */
+
+.cover-heading {
+    color: white;
+    font-size: 70px;
+}
+
+/* Info paragraph on index page */
+
+.lead {
+    color: #66676E;
+    margin-top: 5%;
+}
+
+/* Start button design */
+
+.btn.btn-lg.btn-secondary {
+    background-color: #61C988;
+    border: none;
+    width: 8em;
+}
+
+/* Hovering over start button */
+
+.btn.btn-lg.btn-secondary:hover {
+    background-color: white;
+    color: #61C988;
+}
+
+/* Nav bar formatting */
+
+nav {
+    top: 0;
+    position: absolute;
+    width: 98vw;
+    justify-content: center;
+}
+
+/* Text in nav bar */
+
+.nav-link {
+    color: #66676E;
+    border-radius: 10px;
+    margin: 2vh 2vw;
+}
+
+/* Hovering over nav bar links */
+
+.nav-link:hover {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Div around coin image on index page */
+
+.coinAnimated {
+    /*    animation: entrance 5s linear both;*/
+}
+
+/* Animation for coin going across page upon opening */
+
+/*
+@keyframes entrance {
+    from {
+        transform: translateX(0vw);
+                display: inline-block;
+    }
+    to {
+        transform: translateX(175vw);
+        display: none;
+    }
+}
+*/
+
+/*
+ADAPTED FROM GABRIELE PETROLI
+http://jsfiddle.net/gaby/9Ryvs/7/
+
+Animation for coin spinning
+*/
+
+.coinImage {
+    display: inline-block;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 3500ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 3500ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 3500ms;
+    -ms-animation-iteration-count: 1;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: 3500ms;
+    animation-iteration-count: 1;
+    animation-timing-function: 1;
+    width: 15vw;
+    min-width: 15vw;
+}
+
+/* Coin image spinning animations */
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Boostrap media css for scaling page */
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    .visualizer {
+        flex-direction: column;
+    }
+    .visOption {
+        border-right: 2px solid black;
+        padding: 4em;
+    }
+    .calcOption {
+        padding: 4em;
+    }
+    .mainOptions {
+        justify-content: space-between
+    }
+}
+
+@media (max-width: 768px) {
+    .mainOptions {
+        display: flex;
+        flex-direction: column;
+    }
+    .visOption {
+        border-right: none;
+        border-bottom: 2px solid black;
+        padding: 2em 0;
+    }
+    .calcOption {
+        padding: 2em 0;
+    }
+    .mainOptions {
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+/* For entire content on visualizer page */
+
+.visualizer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5%;
+}
+
+/* Input for amount of money*/
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Where Three.js canvas will go*/
+
+#canvas {
+    width: 70%;
+    border: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#logo-container {
+    left: 0;
+    top: 0;
+    position: fixed;
+    text-align: left;
+    margin: 15px;
+}
+
+#logo {
+    background: none;
+    border: none;
+    width: 80%;
+
+}
+
+.mainOptions {
+    display: flex;
+    direction: row;
+    width: 90vw;
+    margin: 0 5vw;
+}
+
+.visOption {
+    width: 45vw;
+}
+
+.calcOption {
+    width: 45vw;
+}
+
+.visOption:hover,
+.calcOption:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mainIcon {
+    width: 30%;
+}
+
+.aboutPara {
+    text-align: left;
+    width: 70vw;
+    margin: 2.5vh 15vw;
+    font-size: 1.25em;
+}
+
+.intextLink {
+    color: #507E51;
+    text-decoration: underline;
+}
+
+.intextLink:hover {
+    color: #61C988;
+}
