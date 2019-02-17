@@ -167,16 +167,20 @@ Animation for coin spinning
     .visualizer {
         flex-direction: column;
     }
+
     .visOption {
         border-right: 2px solid black;
         padding: 4em;
     }
+
     .calcOption {
         padding: 4em;
     }
+
     .mainOptions {
         justify-content: space-between
     }
+
     .moneyDisplay {
         display: flex;
         flex-direction: row;
@@ -184,6 +188,7 @@ Animation for coin spinning
         flex-wrap: wrap;
         width: 90vw;
     }
+
     .amountBoxes {
         display: flex;
         flex-direction: column;
@@ -198,18 +203,22 @@ Animation for coin spinning
         display: flex;
         flex-direction: column;
     }
+
     .visOption {
         border-right: none;
         border-bottom: 2px solid black;
         padding: 2em 0;
     }
+
     .calcOption {
         padding: 2em 0;
     }
+
     .mainOptions {
         justify-content: center;
         align-items: center;
     }
+
     .moneyDisplay {
         display: flex;
         flex-direction: column;
@@ -334,8 +343,14 @@ form {
     color: #61C988;
 }
 
-.moneyPics, .twentyAboutImg {
+.moneyPics,
+.twentyAboutImg {
     width: 50%;
+}
+
+.moneyPicsCalc {
+    width: 40%;
+    align-items: center;
 }
 
 .centPics {
@@ -343,7 +358,8 @@ form {
     margin: 0 2em;
 }
 
-.moneyPics:hover {
+.moneyPics:hover,
+.moneyPicsCalc:hover {
     transform: scale(1.2);
     transition: 0.4s ease-in-out;
     cursor: pointer;
@@ -397,12 +413,19 @@ form {
     padding-bottom: 20px;
     margin: 5px 0px 0px 0px;
     border-bottom: 2px dotted #507E51;
-    color: #507E51 ;
+    color: #507E51;
     font-size: 45px;
     font-family: 'Bai Jamjuree', sans-serif;
 }
 
-#ten, #twenty, #five, #one, #quarter, #dime, #nickel, #penny {
+#ten,
+#twenty,
+#five,
+#one,
+#quarter,
+#dime,
+#nickel,
+#penny {
     order: 1;
     width: 50vw;
     height: 50vh;
