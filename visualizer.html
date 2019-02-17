@@ -81,14 +81,14 @@
         let moneyValue;
         let testVar;
 
-            resetHighlight("twentyBill");
-            resetHighlight("tenBill");
-            resetHighlight("fiveBill");
-            resetHighlight("oneBill");
-            resetHighlight("quarterCoin");
-            resetHighlight("dimeCoin");
-            resetHighlight("nickelCoin");
-            resetHighlight("pennyCoin");
+        resetHighlight("twentyBill");
+        resetHighlight("tenBill");
+        resetHighlight("fiveBill");
+        resetHighlight("oneBill");
+        resetHighlight("quarterCoin");
+        resetHighlight("dimeCoin");
+        resetHighlight("nickelCoin");
+        resetHighlight("pennyCoin");
 
         //Takes in an amount
         //Recursively finds the amount of bills/coins that total the amount
@@ -181,10 +181,10 @@
         });
 
         function highlight(inputBox, moneyImage) {
-            if( $(inputBox).val() == 0){
+            if ($(inputBox).val() == 0) {
                 console.log(inputBox);
                 //$(moneyImage).css('opactiy', '0.5');
-                document.getElementById(moneyImage).style.opacity = "0.5";
+                document.getElementById(moneyImage).style.opacity = "0.2";
             }
         };
 
