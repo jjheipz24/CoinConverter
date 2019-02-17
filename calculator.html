@@ -69,6 +69,8 @@
                     <input class="numAmount" id="dime" type="text" name="value"> $0.05
                     <input class="numAmount" id="nickel" type="text" name="value"> $0.01
                     <input class="numAmount" id="penny" type="text" name="value">
+                    <h1 class="totalValue">0.00</h1>
+
                     <input type="button" id="submitValue" value="Clear">
                 </section>
             </div>
@@ -80,23 +82,34 @@
 
     <script>
         let timesTwenty = 0;
+        let timesTen = 0;
+        let timesFive = 0;
+        let timesOne = 0;
+        let timesQuarter = 0;
+        let timesDime = 0;
+        let timesNickel = 0;
+        let timesPenny = 0;
+        let totalVal = 0.00;
 
-        function changeAmount(imgID, boxID, boxCounter) {
+        function changeAmount(imgID, boxID, boxCounter, amount) {
             $(imgID).click(function() {
                 boxCounter += 1;
                 $(boxID).val(boxCounter);
                 console.log(boxID + boxCounter);
+                totalVal += amount;
+                console.log(totalVal);
+                $(".totalValue").html((parseFloat(totalVal).toFixed(2)).toString());
             });
         };
 
-        changeAmount("#twentyBill", "#twenty", timesTwenty);
-        changeAmount("#tenBill", "#ten", timesTwenty);
-        changeAmount("#fiveBill", "#five", timesTwenty);
-        changeAmount("#oneBill", "#one", timesTwenty);
-        changeAmount("#quarterCoin", "#quarter", timesTwenty);
-        changeAmount("#dimeCoin", "#dime", timesTwenty);
-        changeAmount("#nickleCoin", "#nickel", timesTwenty);
-        changeAmount("#pennyCoin", "#penny", timesTwenty);
+        changeAmount("#twentyBill", "#twenty", timesTwenty, 20.00);
+        changeAmount("#tenBill", "#ten", timesTen, 10.00);
+        changeAmount("#fiveBill", "#five", timesFive, 5.00);
+        changeAmount("#oneBill", "#one", timesOne, 1.00);
+        changeAmount("#quarterCoin", "#quarter", timesQuarter, 0.25);
+        changeAmount("#dimeCoin", "#dime", timesDime, 0.10);
+        changeAmount("#nickleCoin", "#nickel", timesNickel, 0.05);
+        changeAmount("#pennyCoin", "#penny", timesPenny, 0.01);
     </script>
 
 </body>
