@@ -196,6 +196,27 @@ Animation for coin spinning
         flex-wrap: wrap;
         width: 10vw;
     }
+    .moneyFacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+    }
+    #ten,
+    #twenty,
+    #five,
+    #one,
+    #quarter,
+    #dime,
+    #nickel,
+    #penny {
+        order: 1;
+        width: 50vw;
+        height: 50vh;
+        align-self: flex-start;
+    }
+    .info {
+        width: 500px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -225,7 +246,38 @@ Animation for coin spinning
         align-items: center;
         flex-wrap: nowrap;
     }
+    .moneyFacts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    #ten,
+    #twenty,
+    #five,
+    #one {
+        order: 1;
+        width: 100vw;
+        height: 50vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #quarter,
+    #dime,
+    #nickel,
+    #penny {
+        order: 1;
+        width: vw;
+        height: 50vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info {
+        word-wrap: normal;
+        width: 90vw;
+    }
 }
 
 /* For entire content on visualizer page */
@@ -403,16 +455,12 @@ form {
 }
 
 /*-----------------------------------------------------Julia's stuff-----------------------------------------------------*/
+
 .moneyBod {
     background-image: url(img/lighter.png);
 }
 
 .moneyFacts {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: left;
-
     margin-top: 100px;
 }
 
@@ -426,23 +474,8 @@ form {
     font-family: 'Bai Jamjuree', sans-serif;
 }
 
-#ten,
-#twenty,
-#five,
-#one,
-#quarter,
-#dime,
-#nickel,
-#penny {
-    order: 1;
-    width: 50vw;
-    height: 50vh;
-    align-self: flex-start;
-}
-
 .info {
     order: 2;
-    width: 500px;
     font-family: sans-serif;
 }
 
