@@ -394,6 +394,14 @@ form {
     margin-top: -10vh;
 }
 
+#price {
+    margin-bottom: 20px;
+}
+
+#calculateChange {
+    margin-bottom: 20px;
+}
+
 /*-----------------------------------------------------Julia's stuff-----------------------------------------------------*/
 .moneyBod {
     background-image: url(img/lighter.png);
