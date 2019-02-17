@@ -61,14 +61,14 @@
                         <input type="button" id="submitValue" value="submit">
                     </form>-->
                     $20
-                    <input class="numAmount" id="twenty" type="text" name="value"> $10
-                    <input class="numAmount" id="ten" type="text" name="value"> $5
-                    <input class="numAmount" id="five" type="text" name="value"> $1
-                    <input class="numAmount" id="one" type="text" name="value"> $0.25
-                    <input class="numAmount" id="quarter" type="text" name="value"> $0.10
-                    <input class="numAmount" id="dime" type="text" name="value"> $0.05
-                    <input class="numAmount" id="nickel" type="text" name="value"> $0.01
-                    <input class="numAmount" id="penny" type="text" name="value">
+                    <input class="numAmount" id="twentyInput" type="text" name="value"> $10
+                    <input class="numAmount" id="tenInput" type="text" name="value"> $5
+                    <input class="numAmount" id="fiveInput" type="text" name="value"> $1
+                    <input class="numAmount" id="oneInput" type="text" name="value"> $0.25
+                    <input class="numAmount" id="quarterInput" type="text" name="value"> $0.10
+                    <input class="numAmount" id="dimeInput" type="text" name="value"> $0.05
+                    <input class="numAmount" id="nickelInput" type="text" name="value"> $0.01
+                    <input class="numAmount" id="pennyInput" type="text" name="value">
                     <h1 class="totalValue">0.00</h1>
 
                     <input type="button" id="clearValue" value="Clear">
@@ -109,14 +109,14 @@
             $(".totalValue").html("0.00");
         }
 
-        changeAmount("#twentyBill", "#twenty", timesTwenty, 20.00);
-        changeAmount("#tenBill", "#ten", timesTen, 10.00);
-        changeAmount("#fiveBill", "#five", timesFive, 5.00);
-        changeAmount("#oneBill", "#one", timesOne, 1.00);
-        changeAmount("#quarterCoin", "#quarter", timesQuarter, 0.25);
-        changeAmount("#dimeCoin", "#dime", timesDime, 0.10);
-        changeAmount("#nickleCoin", "#nickel", timesNickel, 0.05);
-        changeAmount("#pennyCoin", "#penny", timesPenny, 0.01);
+        changeAmount("#twentyBill", "#twentyInput", timesTwenty, 20.00);
+        changeAmount("#tenBill", "#tenInput", timesTen, 10.00);
+        changeAmount("#fiveBill", "#fiveInput", timesFive, 5.00);
+        changeAmount("#oneBill", "#oneInput", timesOne, 1.00);
+        changeAmount("#quarterCoin", "#quarterInput", timesQuarter, 0.25);
+        changeAmount("#dimeCoin", "#dimeInput", timesDime, 0.10);
+        changeAmount("#nickleCoin", "#nickelInput", timesNickel, 0.05);
+        changeAmount("#pennyCoin", "#pennyInput", timesPenny, 0.01);
 
         $("#clearValue").click(function() {
             clearAmount("#twenty", timesTwenty);

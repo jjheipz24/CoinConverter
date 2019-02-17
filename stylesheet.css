@@ -377,3 +377,63 @@ form {
 #content {
     margin-top: -10vh;
 }
+
+/*-----------------------------------------------------Julia's stuff-----------------------------------------------------*/
+.moneyBod {
+    background-image: url(img/lighter.png);
+}
+
+.moneyFacts {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: left;
+
+    margin-top: 100px;
+}
+
+.type {
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 5px 0px 0px 0px;
+    border-bottom: 2px dotted #507E51;
+    color: #507E51 ;
+    font-size: 45px;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#ten, #twenty, #five, #one, #quarter, #dime, #nickel, #penny {
+    order: 1;
+    width: 50vw;
+    height: 50vh;
+    align-self: flex-start;
+}
+
+.info {
+    order: 2;
+    width: 500px;
+    font-family: sans-serif;
+}
+
+.info ul li {
+    margin-top: 50px;
+    font-size: 20px;
+    color: #507E51;
+}
+
+.previous {
+    list-style-type: none;
+    background-color: #61C988;
+    font-size: 20px;
+    text-align: center;
+
+    width: 100px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+}
+
+.previous a {
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+}
