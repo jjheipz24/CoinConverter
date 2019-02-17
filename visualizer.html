@@ -44,7 +44,7 @@
             <div class="visualizer">
                 <form>
                     Amount: <input class="moneyInput" type="text" name="value"><br>
-                    <input type="button" id="submitValue" value="submit">
+                    <input type="button" id="submitValue" value="Submit">
                 </form>
                 <section class="amountBoxes">
                     $20<input class="numAmount" id="twenty" type="text" name="value">
@@ -56,7 +56,6 @@
                     $0.05<input class="numAmount" id="nickel" type="text" name="value">
                     $0.01<input class="numAmount" id="penny" type="text" name="value">
                 </section>
-                <div id="canvas"></div>
             </div>
 
 
@@ -66,6 +65,7 @@
 
     <script>
         let moneyValue;
+        let testVar;
 
 
         //Takes in an amount
@@ -82,7 +82,7 @@
                 MoneyDivider(CalcNewAmount(amnt, 5, "#five"));
                 //$("#five").val(numMoney.toString());
             } else if (amnt >= 1) {
-                console.log("ran");
+
                 MoneyDivider(CalcNewAmount(amnt, 1, "#one"));
                 //$("#one").val(numMoney.toString());
             } else if (amnt >= .25) {
@@ -97,7 +97,7 @@
 
                 MoneyDivider(CalcNewAmount(amnt, .05, "#nickel"));
                 //$("#nickel").val(numMoney.toString());
-            } else if (amnt >= .01) {
+            } else if (amnt >= .01 || amnt <= .01 && amnt >= 0) {
 
                 MoneyDivider(CalcNewAmount(amnt, .01, "#penny"));
             } else {
@@ -108,18 +108,47 @@
         //Takes in an amount, the value of the bill/coin, and the id of the input box
         //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
         function CalcNewAmount(amnt, money, boxID) {
+            let numMoney;
+            //divide the amount left by the value of the bill/coin
             let newAmnt = amnt / money;
-            if (money == .01) {
-                var numMoney = Math.ceil(newAmnt);
+            //if working with pennies, check if amount left divided by pennies is greater than or equal to 1
+            //if it is, round to whole number, and set the numMoney to that value
+            if (money == 0.01) {
+                if (newAmnt >= 1) {
+                    newAmnt = newAmnt.toFixed(0);
+                    numMoney = newAmnt;
+                    //if newAmount is less than 0.5, numMoney is equal to 0 because round down
+                } else if (newAmnt < 0.5) {
+                    numMoney = 0;
+                    //round up otherwise
+                } else {
+                    numMoney = 1;
+                }
+                //round down to the lesser integer
+                //subtract the amount by the number of bills/coins to get the new amount left
+                //set the number of bills/coins to the value in the box
+                //return the new amount left
             } else {
-                var numMoney = Math.floor(newAmnt);
+                numMoney = Math.floor(newAmnt);
+                newAmnt = amnt - (numMoney * money);
+                $(boxID).val(numMoney);
+                return newAmnt;
             }
-            console.log(numMoney);
-            newAmnt = amnt - (numMoney * money);
-            $(boxID).val(numMoney);
-            return newAmnt;
-        };
 
+            $(boxID).val(numMoney);
+        };
+        //clears the values in the boxes the next time an amount is inserted
+        $(".moneyInput").change(function() {
+            $("#twenty").val("");
+            $("#ten").val("");
+            $("#five").val("");
+            $("#one").val("");
+            $("#quarter").val("");
+            $("#dime").val("");
+            $("#nickel").val("");
+            $("#penny").val("");
+        })
+        //begins calculations
         $("#submitValue").click(function() {
             moneyValue = $(".moneyInput").val();
             MoneyDivider(moneyValue);
