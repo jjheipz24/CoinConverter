@@ -271,3 +271,12 @@ form {
     margin: 2.5vh 15vw;
     font-size: 1.25em;
 }
+
+.intextLink {
+    color: #507E51;
+    text-decoration: underline;
+}
+
+.intextLink:hover {
+    color: #61C988;
+}
