@@ -45,21 +45,18 @@
             <div class="visualizer">
 
                 <div class="moneyDisplay">
-                    <img class="moneyPics" id="twentyBill" src="media/twentyfront.png">
-                    <img class="moneyPics" id="tenBill" src="media/tenfront.png">
-                    <img class="moneyPics" id="fiveBill" src="media/fivefront.png">
-                    <img class="moneyPics" id="oneBill" src="media/fivefront.png">
+                    <img class="moneyPicsCalc" id="twentyBill" src="media/twentyfront.png">
+                    <img class="moneyPicsCalc" id="tenBill" src="media/tenfront.png">
+                    <img class="moneyPicsCalc" id="fiveBill" src="media/fivefront.png">
+                    <img class="moneyPicsCalc" id="oneBill" src="media/onefront.png">
                     <img class="centPics" id="quarterCoin" src="media/quarterfront.png">
                     <img class="centPics" id="dimeCoin" src="media/dimefront.png">
-                    <img class="centPics" id="nickleCoin" src="media/nickelfront.png">
+                    <img class="centPics" id="nickelCoin" src="media/nickelfront.png">
                     <img class="centPics" id="pennyCoin" src="media/pennyfront.png">
                 </div>
 
                 <section class="amountBoxes">
-                    <!--<form>
-                        Amount: <input class="moneyInput" type="text" name="value"><br>
-                        <input type="button" id="submitValue" value="submit">
-                    </form>-->
+                    Price:<input id="price" type="text" name="value">
                     $20
                     <input class="numAmount" id="twentyInput" type="text" name="value"> $10
                     <input class="numAmount" id="tenInput" type="text" name="value"> $5
@@ -71,6 +68,7 @@
                     <input class="numAmount" id="pennyInput" type="text" name="value">
                     <h1 class="totalValue">0.00</h1>
 
+                    <input type="button" id="calculateChange" value="Calculate Change">
                     <input type="button" id="clearValue" value="Clear">
                 </section>
             </div>
@@ -91,44 +89,200 @@
         let timesPenny = 0;
         let totalVal = 0.00;
 
+        //Checks which bills were clicked and adds to the total and increases how many times they were clicked
+        $(".moneyPicsCalc").click(function() {
+
+            if (this.id == 'twentyBill') {
+                //console.log("button clicked");
+                timesTwenty++;
+                changeAmount("#twentyBill", "#twentyInput", timesTwenty, 20.00);
+            } else if (this.id == 'tenBill') {
+                timesTen++;
+                changeAmount("#tenBill", "#tenInput", timesTen, 10.00);
+            } else if (this.id == 'fiveBill') {
+                timesFive++;
+                changeAmount("#fiveBill", "#fiveInput", timesTen, 10.00);
+            } else if (this.id == 'oneBill') {
+                timesOne++;
+                changeAmount("#oneBill", "#oneInput", timesOne, 1.00);
+            }
+        });
+        //Checks which coins were clicked and adds to the total and increases how many times they were clicked
+        $('.centPics').click(function() {
+            if (this.id == 'quarterCoin') {
+                console.log("quarter");
+                timesQuarter++;
+                changeAmount("#quarterCoin", "#quarterInput", timesQuarter, 0.25);
+            } else if (this.id == 'dimeCoin') {
+                timesDime++;
+                changeAmount("#dimeCoin", "#dimeInput", timesDime, 0.10);
+            } else if (this.id == 'nickelCoin') {
+                timesNickel++;
+                changeAmount("#nickleCoin", "#nickelInput", timesNickel, 0.05);
+            } else if (this.id == 'pennyCoin') {
+                timesPenny++;
+                changeAmount("#pennyCoin", "#pennyInput", timesPenny, 0.01);
+            }
+        });
+
+        $('#calculateChange').click(function() {
+            let given = totalVal;
+            let change = totalVal - $("#price").val();
+            $(".totalValue").html(((change).toFixed(2)).toString());
+            console.log(change);
+
+            clearAmount("#twentyInput");
+            clearAmount("#tenInput");
+            clearAmount("#fiveInput");
+            clearAmount("#oneInput");
+            clearAmount("#quarterInput");
+            clearAmount("#dimeInput");
+            clearAmount("#nickelInput");
+            clearAmount("#pennyInput");
+            $(".totalValue").html(((change).toFixed(2)).toString());
+            MoneyDivider(change);
+
+            //highlights bills/coins needed for change
+            highlight("#twentyInput", "twentyBill");
+            highlight("#tenInput", "tenBill");
+            highlight("#fiveInput", "fiveBill");
+            highlight("#oneInput", "oneBill");
+            highlight("#quarterInput", "quarterCoin");
+            highlight("#dimeInput", "dimeCoin");
+            highlight("#nickelInput", "nickelCoin");
+            highlight("#pennyInput", "pennyCoin");
+
+        });
+
+        //clears everything
+        $("#clearValue").click(function() {
+            clearAmount("#twentyInput");
+            clearAmount("#tenInput");
+            clearAmount("#fiveInput");
+            clearAmount("#oneInput");
+            clearAmount("#quarterInput");
+            clearAmount("#dimeInput");
+            clearAmount("#nickelInput");
+            clearAmount("#pennyInput");
+            clearAmount("#price");
+
+            //undoes opacity change
+            resetHighlight("twentyBill");
+            resetHighlight("tenBill");
+            resetHighlight("fiveBill");
+            resetHighlight("oneBill");
+            resetHighlight("quarterCoin");
+            resetHighlight("dimeCoin");
+            resetHighlight("nickelCoin");
+            resetHighlight("pennyCoin");
+        });
+
+        //changes the boxes
         function changeAmount(imgID, boxID, boxCounter, amount) {
-            $(imgID).click(function() {
-                boxCounter += 1;
-                $(boxID).val(boxCounter);
-                console.log(boxID + boxCounter);
-                totalVal += amount;
-                console.log(totalVal);
-                $(".totalValue").html((parseFloat(totalVal).toFixed(2)).toString());
-            });
+
+            $(boxID).val(boxCounter);
+            //console.log(boxID + boxCounter);
+            totalVal += amount;
+            //console.log(totalVal);
+            $(".totalValue").html(((totalVal).toFixed(2)).toString());
         };
 
-        function clearAmount(boxID, boxCounter) {
-            boxCounter = 0;
+
+        //clears everything
+        function clearAmount(boxID) {
+            timesTwenty = 0;
+            timesTen = 0;
+            timesFive = 0;
+            timesOne = 0;
+            timesQuarter = 0;
+            timesDime = 0;
+            timesNickel = 0;
+            timesPenny = 0;
             $(boxID).val('');
-            console.log(boxCounter);
             $(".totalValue").html("0.00");
+            totalVal = 0.00;
         }
 
-        changeAmount("#twentyBill", "#twentyInput", timesTwenty, 20.00);
-        changeAmount("#tenBill", "#tenInput", timesTen, 10.00);
-        changeAmount("#fiveBill", "#fiveInput", timesFive, 5.00);
-        changeAmount("#oneBill", "#oneInput", timesOne, 1.00);
-        changeAmount("#quarterCoin", "#quarterInput", timesQuarter, 0.25);
-        changeAmount("#dimeCoin", "#dimeInput", timesDime, 0.10);
-        changeAmount("#nickleCoin", "#nickelInput", timesNickel, 0.05);
-        changeAmount("#pennyCoin", "#pennyInput", timesPenny, 0.01);
+        //Takes in an amount
+        //Recursively finds the amount of bills/coins that total the amount
+        function MoneyDivider(amnt) {
 
-        $("#clearValue").click(function() {
-            clearAmount("#twenty", timesTwenty);
-            clearAmount("#ten", timesTen);
-            clearAmount("#five", timesFive);
-            clearAmount("#one", timesOne);
-            clearAmount("#quarter", timesQuarter);
-            clearAmount("#dime", timesDime);
-            clearAmount("#nickel", timesNickel);
-            clearAmount("#penny", timesPenny);
-            totalVal = 0.00;
-        });
+            if (amnt >= 20) {
+                MoneyDivider(CalcNewAmount(amnt, 20, "#twentyInput"));
+
+            } else if (amnt >= 10) {
+                MoneyDivider(CalcNewAmount(amnt, 10, "#tenInput"));
+                //$("#ten").val(numMoney.toString());
+            } else if (amnt >= 5) {
+                MoneyDivider(CalcNewAmount(amnt, 5, "#fiveInput"));
+                //$("#five").val(numMoney.toString());
+            } else if (amnt >= 1) {
+
+                MoneyDivider(CalcNewAmount(amnt, 1, "#oneInput"));
+                //$("#one").val(numMoney.toString());
+            } else if (amnt >= .25) {
+
+                MoneyDivider(CalcNewAmount(amnt, .25, "#quarterInput"));
+                // $("#quarter").val(numMoney.toString());
+            } else if (amnt >= .10) {
+
+                MoneyDivider(CalcNewAmount(amnt, .10, "#dimeInput"));
+                //$("#dime").val(numMoney.toString());
+            } else if (amnt >= .05) {
+
+                MoneyDivider(CalcNewAmount(amnt, .05, "#nickelInput"));
+                //$("#nickel").val(numMoney.toString());
+            } else if (amnt >= .01 || amnt <= .01 && amnt >= 0) {
+
+                MoneyDivider(CalcNewAmount(amnt, .01, "#pennyInput"));
+            } else {
+                console.log("done");
+            }
+        }
+        //Takes in an amount, the value of the bill/coin, and the id of the input box
+        //Finds the new amount to be returned into MoneyDivider and adds the number of bills/coins to the correct box
+        function CalcNewAmount(amnt, money, boxID) {
+            let numMoney;
+            //divide the amount left by the value of the bill/coin
+            let newAmnt = amnt / money;
+            //if working with pennies, check if amount left divided by pennies is greater than or equal to 1
+            //if it is, round to whole number, and set the numMoney to that value
+            if (money == 0.01) {
+                if (newAmnt >= 1) {
+                    newAmnt = newAmnt.toFixed(0);
+                    numMoney = newAmnt;
+                    //if newAmount is less than 0.5, numMoney is equal to 0 because round down
+                } else if (newAmnt < 0.5) {
+                    numMoney = 0;
+                    //round up otherwise
+                } else {
+                    numMoney = 1;
+                }
+                //round down to the lesser integer
+                //subtract the amount by the number of bills/coins to get the new amount left
+                //set the number of bills/coins to the value in the box
+                //return the new amount left
+            } else {
+                numMoney = Math.floor(newAmnt);
+                newAmnt = amnt - (numMoney * money);
+                $(boxID).val(numMoney);
+                return newAmnt;
+            }
+
+            $(boxID).val(numMoney);
+        };
+
+        function highlight(inputBox, moneyImage) {
+            if ($(inputBox).val() == 0) {
+                console.log(inputBox);
+                //$(moneyImage).css('opactiy', '0.5');
+                document.getElementById(moneyImage).style.opacity = "0.5";
+            }
+        };
+
+        function resetHighlight(moneyImage) {
+            document.getElementById(moneyImage).style.opacity = "1";
+        }
     </script>
 
 </body>
