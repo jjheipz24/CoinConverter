@@ -378,6 +378,10 @@ form {
     width: 50%;
 }
 
+.teamPic {
+    width: 40%;
+}
+
 .moneyPicsCalc {
     width: 40%;
     align-items: center;
