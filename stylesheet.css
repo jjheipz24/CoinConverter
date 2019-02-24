@@ -221,6 +221,15 @@ Animation for coin spinning
         width: 500px;
     }
 
+    /* For entire content on visualizer page */
+
+.visualizer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5%;
+}
+
 }
 
 @media (max-width: 768px) {
@@ -288,17 +297,22 @@ Animation for coin spinning
         padding-top: 20px;
     }
 
+    #content {
+        flex-direction: row;
+    }
+
+    .visualizer {
+        flex-direction: row;
+    }
+
+    .amountBoxes {
+        margin-left: 40%;
+    }
+
 
 }
 
-/* For entire content on visualizer page */
 
-.visualizer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0 5%;
-}
 
 /* Input for amount of money*/
 
@@ -416,7 +430,6 @@ form {
 }
 
 .amountBoxes {
-    display: flex;
     display: flex;
     flex-direction: column;
     width: 20vw;
